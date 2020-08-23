@@ -1,0 +1,23 @@
+{
+  "name": "serverclient",
+  "version": "1.0.0",
+  "description": "Interface to Raspberry Pi automation server",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^9.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mancheskiL/ServerClient.git"
+  },
+  "author": "Lucas Mancheski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mancheskiL/ServerClient/issues"
+  },
+  "homepage": "https://github.com/mancheskiL/ServerClient#readme"
+}
