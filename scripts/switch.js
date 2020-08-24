@@ -1,6 +1,8 @@
 const electron = require('electron')
 const { ipcRenderer } = require('electron')
 
-function change_page(){
-  ipcRenderer.invoke('perform-action', 'index.html')
+function change_page(fileName){
+  let end = '.html'
+  let output = fileName + end
+  ipcRenderer.invoke('perform-action', output)
 }

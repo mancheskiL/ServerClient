@@ -1,18 +1,19 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 
 
-function createWindow (file) {
+function createWindow () {
   // Create the browser window.
-  const win = new BrowserWindow({
-    width: 800,
+  // not using var, let, or const so that 'win' becomes global
+  // which lets us reload the page
+  win = new BrowserWindow({
+    width: 600,
     height: 600,
     webPreferences: {
       nodeIntegration: true
     }
   })
-
   // and load the index.html of the app.
-  win.loadFile(file)
+  win.loadFile('public/switcher.html')
   // win.loadFile('public/interface.html')
   // win.loadFile('public/login.html')
 
@@ -23,7 +24,8 @@ function createWindow (file) {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(createWindow('public/switcher.html'))
+// app.whenReady().then(createWindow('public/switcher.html'))
+app.whenReady().then(createWindow)
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
@@ -45,5 +47,7 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ipcMain.handle('perform-action', async (event, file) => {
-  const result = await createWindow('public/' + file)
+  console.log('reached ipcMain')
+  console.log(file)
+  const result = await win.loadFile('public/' + file)
 })
