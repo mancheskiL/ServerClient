@@ -11,7 +11,9 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  win.loadFile('public/index.html')
+  win.loadFile('public/switcher.html')
+  // win.loadFile('public/interface.html')
+  // win.loadFile('public/login.html')
 
   // Open the DevTools.
   // win.webContents.openDevTools()
