@@ -3,9 +3,15 @@
   <head>
     <title>MediaPi Interface</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-    <script type="text/javascript" src="../scripts/switch.js"></script>
+    <script type="text/javascript" src="../scripts/create_account_submit.js"></script>
   </head>
   <body>
     <h1>Create Account</h1>
+    <p id="demo"></p>
+    <button id="test">test</button>
+    <form id="create-accont" class="js-create-account">
+      <input id="username-input" type="text"></input>
+      <button id="submit-account" class="js-submit-account js-button" onclick="print_test()">Submit</button>
+    </form>
   </body>
 </html>
