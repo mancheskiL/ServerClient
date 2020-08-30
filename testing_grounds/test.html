@@ -25,9 +25,10 @@
     <!-- <button id="submit">Submit</button> -->
     <!-- does type="button" need to be included for JS to work -->
     <!-- doesnt seem to matter -->
-    <button id="submit" type="button">Submit</button>
+    <button id="submit" class="js-submit" type="button">Submit</button>
     <script>
-      var button = document.getElementById('submit')
+      // var button = document.getElementById('submit')
+      var button = document.querySelector('.js-submit')
       button.addEventListener('click', (event) => {
         document.getElementById('demo').innerHTML = 'Button was clicked'
         alert("Button was clicked!")

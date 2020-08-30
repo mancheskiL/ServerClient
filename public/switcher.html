@@ -3,13 +3,17 @@
   <head>
     <title>MediaPi Interface</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-    <script type="text/javascript" src="../scripts/switch.js"></script>
   </head>
   <body>
     <h1>Switcher</h1>
-    <button type="button" onclick="change_page('load')">Load</button>
-    <button type="button" onclick="change_page('interface')">Interface</button>
-    <button type="button" onclick="change_page('login')">Login</button>
-    <button type="button" onclick="change_page('create_account')">Create Account</button>
+    <!-- <button type="button" class="js-switch" onclick="change_page('load')">Load</button>
+    <button type="button" class="js-switch" onclick="change_page('interface')">Interface</button>
+    <button type="button" class="js-switch" onclick="change_page('login')">Login</button>
+    <button type="button" class="js-switch" onclick="change_page('create_account')">Create Account</button> -->
+    <button type="button" class="js-switch">Load</button>
+    <button type="button" class="js-switch">Interface</button>
+    <button type="button" class="js-switch">Login</button>
+    <button type="button" class="js-switch">Create Account</button>
+    <script type="text/javascript" src="../scripts/switch.js"></script>
   </body>
 </html>
