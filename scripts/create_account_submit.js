@@ -14,4 +14,5 @@ button.addEventListener('click', (event) => {
   let output = document.getElementById("username-input").value
   console.log(output)
   ipcRenderer.invoke('debug-message', output)
+  location.reload()
 })
