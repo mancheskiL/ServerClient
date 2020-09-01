@@ -63,7 +63,7 @@ ipcMain.handle('create-account', (event, message) => {
   console.log(message)
   console.log('attempting to contact mongodb')
 
-  const MongoClient = require('mongodb').MongoClients;
+  const MongoClient = require('mongodb').MongoClient;
   const uri = "mongodb+srv://luman_og:12213119@lumandb.z488z.gcp.mongodb.net/Pi_Serv?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
   client.connect(err => {
