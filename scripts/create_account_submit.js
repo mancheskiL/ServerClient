@@ -1,5 +1,6 @@
 const { ipcRenderer } = require('electron')
-const MongoClient = require('mongodb').MongoClient;
+const MongoClient = require('mongodb').MongoClient
+require('dotenv').config()
 
 const button = document.getElementById('submit-account')
 
@@ -12,13 +13,13 @@ button.addEventListener('click', (event) => {
   // ipcRenderer.invoke('create-account', output)
 
   // const uri = "mongodb+srv://luman_og:12213119@lumandb.z488z.gcp.mongodb.net/Pi_Serv?retryWrites=true&w=majority";
-  const uri = "mongodb+srv://luman_og:12213119@lumandb.z488z.gcp.mongodb.net/sample_airbnb?ssl=true&authSource=admin&retryWrites=true&w=majority";
-  const client = new MongoClient(uri, { useNewUrlParser: true });
+  const uri = "mongodb+srv://" + process.env.USERNAME + ":" + process.env.PASSWORD + "@" + process.env.SITE + ".z488z.gcp.mongodb.net/sample_airbnb?ssl=true&authSource=admin&retryWrites=true&w=majority";
+  const client = new MongoClient(uri, { useNewUrlParser: true })
   // const client = new MongoClient(uri);
   client.connect(err => {
-    if (err) throw err;
-    console.log('connected to db!');
-    client.close();
+    if (err) throw err
+    console.log('connected to db!')
+    client.close()
   })
 
   // location.reload()
