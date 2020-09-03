@@ -51,9 +51,3 @@ ipcMain.handle('perform-action', async (event, file) => {
   console.log(file)
   const result = await win.loadFile('public/' + file)
 })
-
-// handler for debug-console.log messages from render processes
-ipcMain.handle('debug-message', async (event, message) => {
-  console.log("debug recieved")
-  console.log(message)
-})
