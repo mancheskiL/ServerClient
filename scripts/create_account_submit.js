@@ -4,6 +4,10 @@ require('dotenv').config()
 
 const button = document.getElementById('submit-account')
 
+console.log(process.env.USER)
+console.log(process.env.PASSWORD)
+console.log(process.env.SITE)
+
 // listen for submit button click
 button.addEventListener('click', (event) => {
   console.log("submit button was pressed")
