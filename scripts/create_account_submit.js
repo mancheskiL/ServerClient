@@ -29,8 +29,12 @@ button.addEventListener('click', (event) => {
         console.log('username already exists')
       } else {
         console.log('creating new user account')
+        var entry = { account: input_name }
+        dbo.collection('accounts').insertOne(entry, (err, res) => {
+          if (err) throw err
+          console.log(input_name + ' :user account created')
+        })
       }
-      console.log(result)
       db.close()
     })
   })
