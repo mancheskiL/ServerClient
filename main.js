@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, session } = require('electron')
 
 
 function createWindow () {
@@ -21,12 +21,21 @@ function createWindow () {
   win.webContents.openDevTools()
 }
 
+function tellCookies () {
+  session.defaultSession.cookies.get({name: 'login'})
+    .then((cookies) => {
+      console.log('cookies: ' + cookies)
+    }).catch((error) => {
+      console.log(error)
+    })
+}
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 // app.whenReady().then(createWindow('public/switcher.html'))
 app.whenReady().then(createWindow)
-
+app.whenReady().then((tellCookies))
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
@@ -50,4 +59,29 @@ ipcMain.handle('perform-action', async (event, file) => {
   console.log('reached ipcMain')
   console.log(file)
   const result = await win.loadFile('public/' + file)
+})
+
+ipcMain.on('cookie-build', (event, message) => {
+  console.log('message: ' + message[0] + ':' + message[1])
+  let cookie = { url: 'http://rasp_pi.luman.io', name: 'login', value: message[1] }
+  if (message[0]){
+    var expiration = new Date()
+    var hour = expiration.getHours()
+    hour = hour + 6
+    expiration.setHours(hour)
+    session.defaultSession.cookies.set({
+      url: 'http://rasp_pi.luman.io',
+      name: 'login',
+      value: message[1],
+      expirationDate: expiration.getTime()
+    })
+  } else {
+  session.defaultSession.cookies.set(cookie)
+    .then( () => {
+      console.log('cookie was made')
+    }, (error) => {
+      console.error(error)
+    })
+  }
+  tellCookies()
 })

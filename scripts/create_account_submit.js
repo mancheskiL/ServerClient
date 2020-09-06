@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron')
+// const { ipcRenderer } = require('electron')
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
