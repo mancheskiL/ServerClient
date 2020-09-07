@@ -25,6 +25,7 @@ function tellCookies () {
   session.defaultSession.cookies.get({name: 'login'})
     .then((cookies) => {
       console.log('cookies: ' + cookies)
+      console.dir(cookies)
     }).catch((error) => {
       console.log(error)
     })
