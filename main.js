@@ -86,5 +86,7 @@ ipcMain.on('cookie-build', (event, message) => {
     })
   }
   tellCookies()
-  event.sender.send('cookie-reply', cookie)
+  // I don't think I need to do this
+  // save for now
+  // event.sender.send('cookie-reply', cookie)
 })

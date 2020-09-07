@@ -32,9 +32,7 @@ submitButton.addEventListener('click', (event) => {
       if (result.length < 1) {
         console.log("username does not exist")
       } else {
-        // TODO: make cookie file of some kind for the session
-        // cookies must be handled by main process
-        // so send event to main for processing
+        // cookie handling
         if (rememberBox) {
           // make long lasting cookie
           let message = true
@@ -48,7 +46,6 @@ submitButton.addEventListener('click', (event) => {
       db.close()
     })
   })
-
   // const tempLogin = 'test'
   //
   // if (tempLogin !== inputLogin){
@@ -64,11 +61,12 @@ submitButton.addEventListener('click', (event) => {
   //     ipcRenderer.send('cookie-build', [message, inputLogin])
   //   }
   // }
-
 })
 
-ipcRenderer.on('cookie-reply', (event, arg) => {
-  const cookieUser = arg
-  console.log('cookie user: ')
-  console.dir(cookieUser)
-})
+// receives cookie info from main process
+// I don't think i actually need this here...*thinking*
+// ipcRenderer.on('cookie-reply', (event, arg) => {
+//   const cookieUser = arg
+//   console.log('cookie user: ')
+//   console.dir(cookieUser)
+// })
