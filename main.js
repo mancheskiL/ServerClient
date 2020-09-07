@@ -89,4 +89,7 @@ ipcMain.on('cookie-build', (event, message) => {
   // I don't think I need to do this
   // save for now
   // event.sender.send('cookie-reply', cookie)
+
+  // any of this happening means login was acceptable, so load next page
+  win.loadFile('public/interface.html')
 })
