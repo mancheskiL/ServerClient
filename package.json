@@ -6,7 +6,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "electron": "^9.2.1",
-    "mongodb": "^3.6.0"
+    "mongodb": "^3.6.0",
+    "ping": "^0.2.3"
   },
   "devDependencies": {},
   "scripts": {
