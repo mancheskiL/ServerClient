@@ -28,6 +28,7 @@ function tellCookies () {
       console.dir(cookies)
     }).catch((error) => {
       console.log(error)
+      return error
     })
 }
 
@@ -85,4 +86,5 @@ ipcMain.on('cookie-build', (event, message) => {
     })
   }
   tellCookies()
+  event.sender.send('cookie-reply', cookie)
 })

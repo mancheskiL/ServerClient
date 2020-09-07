@@ -66,3 +66,9 @@ submitButton.addEventListener('click', (event) => {
   // }
 
 })
+
+ipcRenderer.on('cookie-reply', (event, arg) => {
+  const cookieUser = arg
+  console.log('cookie user: ')
+  console.dir(cookieUser)
+})
