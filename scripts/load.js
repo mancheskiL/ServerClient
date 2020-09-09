@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron')
+
 var check = 0
 // TODO: need to check status of Pi node.js server instance
 var xhttp = new XMLHttpRequest()
@@ -16,5 +18,10 @@ xhttp.send()
 // if file exists, skip login screen
 // only main process can handle cookies
 // send event to main process for cookie handling
+
+// if webserver is running, we tell main process to check for cookies and load
+// the appropriate page
+ipcRenderer.send('cookie-check')
+
 // TODO: load interface page once done
 // if no cookie type files, then load login page

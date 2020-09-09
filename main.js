@@ -93,3 +93,12 @@ ipcMain.on('cookie-build', (event, message) => {
   // any of this happening means login was acceptable, so load next page
   win.loadFile('public/interface.html')
 })
+
+ipcMain.on('cookie-check', (event) => {
+  let temp_cookies
+  session.defaultSession.cookies.get({name: 'login'})
+    .then((cookies) => {
+      temp_cookies = cookies
+    })
+  console.log(temp_cookies)
+})
