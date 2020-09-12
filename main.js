@@ -68,9 +68,12 @@ ipcMain.on('cookie-build', (event, message) => {
   let cookie = { url: 'http://rasp_pi.luman.io', name: 'login', value: message[1] }
   if (message[0]){
     var expiration = new Date()
-    var hour = expiration.getHours()
-    hour = hour + 6
-    expiration.setHours(hour)
+    // var hour = expiration.getHours()
+    var minutes = expiration.getMinutes()
+    // hour = hour + 6
+    minutes = minutes + 1
+    // expiration.setHours(hour)
+    expiration.setMinutes(minutes)
     session.defaultSession.cookies.set({
       url: 'http://rasp_pi.luman.io',
       name: 'login',
@@ -95,10 +98,13 @@ ipcMain.on('cookie-build', (event, message) => {
 })
 
 ipcMain.on('cookie-check', (event) => {
-  let temp_cookies
   session.defaultSession.cookies.get({name: 'login'})
     .then((cookies) => {
-      temp_cookies = cookies
+      console.log(cookies)
+      if (cookies.length > 0) {
+        win.loadFile('public/interface.html')
+      } else {
+        win.loadFile('public/login.html')
+      }
     })
-  console.log(temp_cookies)
 })

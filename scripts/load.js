@@ -13,15 +13,11 @@ xhttp.onreadystatechange = function () {
 xhttp.open("GET", "http://192.168.178.43:8080", true)
 xhttp.send()
 
+// TODO: behvaior for when webserver not reachable
+// still want app to load, just not perform anything which requires webserver
+// connection
 
-// TODO: check for persistent user cookie type file
-// if file exists, skip login screen
-// only main process can handle cookies
-// send event to main process for cookie handling
+// TODO: if webserver not available, an icon or something should communicate
+// that status
 
-// if webserver is running, we tell main process to check for cookies and load
-// the appropriate page
 ipcRenderer.send('cookie-check')
-
-// TODO: load interface page once done
-// if no cookie type files, then load login page
