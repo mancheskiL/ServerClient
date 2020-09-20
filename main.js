@@ -58,13 +58,13 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 ipcMain.handle('perform-action', async (event, file) => {
-  console.log('reached ipcMain')
-  console.log(file)
+  // console.log('reached ipcMain')
+  // console.log(file)
   const result = await win.loadFile('public/' + file)
 })
 
 ipcMain.on('cookie-build', (event, message) => {
-  console.log('message: ' + message[0] + ':' + message[1])
+  // console.log('message: ' + message[0] + ':' + message[1])
   let cookie = { url: 'http://rasp_pi.luman.io', name: 'login', value: message[1] }
   if (message[0]){
     var expiration = new Date()
@@ -100,7 +100,7 @@ ipcMain.on('cookie-build', (event, message) => {
 ipcMain.on('cookie-check', (event) => {
   session.defaultSession.cookies.get({name: 'login'})
     .then((cookies) => {
-      console.log(cookies)
+      // console.log(cookies)
       if (cookies.length > 0) {
         win.loadFile('public/interface.html')
       } else {

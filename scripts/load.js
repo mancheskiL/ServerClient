@@ -1,7 +1,7 @@
 const { ipcRenderer } = require('electron')
 
 var check = 0
-// TODO: need to check status of Pi node.js server instance
+// check status of Pi node.js server instance
 var xhttp = new XMLHttpRequest()
 xhttp.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
