@@ -26,6 +26,7 @@ submitButton.addEventListener('click', (event) => {
     var dbo = db.db('Pi_Serv')
     var query = { account: inputLogin }
 
+    console.log('querying DB')
     dbo.collection('accounts').find(query).toArray((err, result) => {
       if (err) throw err
 
