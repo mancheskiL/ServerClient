@@ -11,6 +11,12 @@ function writeButtons(method){
 
   btn.addEventListener('click', (event) => {
     console.log(btn.innerHTML + ' was clicked')
+    var xhttp = new XMLHttpRequest()
+    xhttp.onreadystatechange = () => {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(xhttp.responseText)
+      }
+    }
   })
 }
 

@@ -10,7 +10,7 @@ xhttp.onreadystatechange = function () {
   }
 }
 
-xhttp.open("GET", "http://192.168.178.43:8080", true)
+xhttp.open("GET", "http://192.168.178.43:3000", true)
 xhttp.send()
 
 // TODO: behvaior for when webserver not reachable
