@@ -18,8 +18,8 @@ function writeButtons(method){
         console.log(this.responseText)
       }
     }
-    xhttp.open('GET', 'http://192.168.178.43:3000/test', true)
-    xhttp.send()
+    xhttp.open('POST', 'http://192.168.178.43:3000/test', true)
+    xhttp.send('message=echo')
   })
 }
 
