@@ -12,11 +12,14 @@ function writeButtons(method){
   btn.addEventListener('click', (event) => {
     console.log(btn.innerHTML + ' was clicked')
     var xhttp = new XMLHttpRequest()
-    xhttp.onreadystatechange = () => {
+    xhttp.onreadystatechange = function () {
+      // console.log(this.readyState + ' ' + this.status)
       if (this.readyState == 4 && this.status == 200) {
-        console.log(xhttp.responseText)
+        console.log(this.responseText)
       }
     }
+    xhttp.open('GET', 'http://192.168.178.43:3000/test', true)
+    xhttp.send()
   })
 }
 
