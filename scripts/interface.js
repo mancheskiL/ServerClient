@@ -15,12 +15,16 @@ function writeButtons(method){
     xhttp.onreadystatechange = function () {
       // console.log(this.readyState + ' ' + this.status)
       if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText)
+        var jsonResponse = JSON.parse(this.responseText)
+        console.log(jsonResponse[0]['message'])
       }
     }
-    xhttp.open('POST', 'http://192.168.178.43:3000/test', true)
+    // connecting to dev server currently
+    // port 2000 = dev server
+    // port 3000 = production server
+    xhttp.open('POST', 'http://192.168.178.43:2000/test', true)
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    xhttp.send('message=echo')
+    xhttp.send(`message=${btn.innerHTML}`)
   })
 }
 
