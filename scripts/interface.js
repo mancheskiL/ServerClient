@@ -19,6 +19,7 @@ function writeButtons(method){
       }
     }
     xhttp.open('POST', 'http://192.168.178.43:3000/test', true)
+    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     xhttp.send('message=echo')
   })
 }
