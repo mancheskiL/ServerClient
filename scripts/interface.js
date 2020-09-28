@@ -1,4 +1,4 @@
-// TODO: send request to server based on button press
+// TODO: convert XHTTP to axios framework (axios is already installed (npm install axios))
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 

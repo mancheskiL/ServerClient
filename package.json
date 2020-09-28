@@ -4,6 +4,7 @@
   "description": "Interface to Raspberry Pi automation server",
   "main": "main.js",
   "dependencies": {
+    "axios": "^0.20.0",
     "dotenv": "^8.2.0",
     "electron": "^9.2.1",
     "mongodb": "^3.6.0",
