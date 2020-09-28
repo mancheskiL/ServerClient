@@ -1,3 +1,5 @@
 .demo {
     background-color: cornsilk;
+    /* setting element display to none makes it non-interactive as well */
+    display: none;
 }
