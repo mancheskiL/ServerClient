@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>MediaPi Interface</title>
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
-    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" /> -->
+    <!-- <script src="https://unpkg.com/vue@next"></script> this is beta/dev library of vue, our require down below uses a stable package from npm-->
   </head>
   <body>
     <h1>Switcher</h1>
@@ -12,12 +12,24 @@
     <button id="login" type="button" class="js-switch">Login</button>
     <button id="create_account" ype="button" class="js-switch">Create Account</button>
     <script type="text/javascript" src="../scripts/switch.js"></script>
-    <div class="response-box">
+    <div id="bind-attribute" class="demo">
       <!-- put response code here -->
-      <!-- on mercury, vue is npm installed, see if we can access api now instead of using header link -->
-      <script>
-        const vue = require('vue')
-      </script>
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+      </span>
     </div>
+    <script>
+      const vue = require('vue')
+      
+      const AttributeBinding = {
+        data() {
+          return {
+            message: 'You loaded this page on ' + new Date().toLocaleString()
+          }
+        }
+      }
+
+      vue.createApp(AttributeBinding).mount('#bind-attribute')
+    </script>
   </body>
 </html>
