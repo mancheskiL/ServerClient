@@ -3,6 +3,7 @@
   <head>
     <title>MediaPi Interface</title>
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
   </head>
   <body>
     <h1>Switcher</h1>
@@ -13,6 +14,10 @@
     <script type="text/javascript" src="../scripts/switch.js"></script>
     <div class="response-box">
       <!-- put response code here -->
+      <!-- on mercury, vue is npm installed, see if we can access api now instead of using header link -->
+      <script>
+        const vue = require('vue')
+      </script>
     </div>
   </body>
 </html>
