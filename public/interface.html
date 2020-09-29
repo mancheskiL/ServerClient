@@ -4,30 +4,51 @@
     <title>MediaPi Interface</title>
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" /> -->
     <link rel="stylesheet" href="../css/interface.css">
+    <script>
+      const vue = require('vue')
+    </script>
   </head>
   <body>
     <h1>Methods</h1>
     
     <script src="../scripts/interface.js"></script>
-
-    <div id="bind-attribute" class="demo">
-      <!-- put response code here -->
-      <span v-bind:title="message">
-        Hover your mouse over me for a few seconds to see my dynamically bound title!
-      </span>
-    </div>
-    <script>
-      const vue = require('vue')
-      
-      const AttributeBinding = {
-        data() {
-          return {
-            message: 'You loaded this page on ' + new Date().toLocaleString()
+    <div class="vue-container">
+      <div id="bind-attribute" class="demo">
+        <!-- put response code here -->
+        <span v-bind:title="message">
+          Hover your mouse over me for a few seconds to see my dynamically bound title!
+        </span>
+      </div>
+      <script>
+        const AttributeBinding = {
+          data() {
+            return {
+              message: 'You loaded this page on ' + new Date().toLocaleString()
+            }
           }
         }
-      }
-
-      vue.createApp(AttributeBinding).mount('#bind-attribute')
-    </script>
+        vue.createApp(AttributeBinding).mount('#bind-attribute')
+      </script>
+      <div id="toggle-button">
+        <button v-on:click="toggle" class="toggle-button-js">Toggle Button</button>
+        <p>{{ status }}</p>
+      </div>
+      <script>
+        const DisplayMessage = {
+          data() {
+            return {
+              status: 'false'
+            }
+          },
+          methods: {
+            toggle() {
+              this.status = 'true'
+              console.log(`Toggled: ${this.status}`)
+            }
+          }
+        }
+        vue.createApp(DisplayMessage).mount('#toggle-button')
+      </script>
+    </div>
   </body>
 </html>
